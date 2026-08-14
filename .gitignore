@@ -1,0 +1,64 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual Environment
+.venv/
+venv/
+env/
+ENV/
+
+# Django
+*.log
+db.sqlite3
+db.sqlite3-journal
+media/
+
+# Environment Variables / Secrets
+.env
+.env.*
+!.env.example
+
+# Static files
+staticfiles/
+static_root/
+
+# Django migrations
+# Usually DON'T ignore migrations.
+# Keep migration files in Git.
+
+# IDE / Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Testing / Coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# Build / Packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Ruff / mypy
+.mypy_cache/
+.ruff_cache/
+
+# PostgreSQL
+*.sql
