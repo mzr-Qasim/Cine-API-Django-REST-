@@ -1,0 +1,15 @@
+input,
+textarea,
+select {
+    border: 2px solid #9ca3af !important;
+    border-radius: 3px !important;
+    padding: 0.5rem;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #2563eb !important;
+    outline: none !important;
+    box-shadow: 0 0 0 1px #2563eb !important;
+}

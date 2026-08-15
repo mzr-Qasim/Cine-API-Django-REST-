@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/6.1/ref/settings/
 """
 
 from pathlib import Path
+from django.templatetags.static import static
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -118,7 +119,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.1/howto/static-files/
 
-STATIC_URL = 'static/'
+
+STATIC_URL = "static/"
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
 
 
 # Email
@@ -127,5 +133,39 @@ STATIC_URL = 'static/'
 MAILERS = {
     'default': {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
+    },
+}
+
+
+
+UNFOLD = {
+    "SITE_TITLE": "Cine API",
+    "SITE_HEADER": "Cine API",
+    "SITE_SUBHEADER": "Admin Panel",
+
+    # Theme
+    "THEME": "light",
+
+    # UI
+    "BORDER_RADIUS": "6px",
+    "SHOW_HISTORY": True,
+    "SHOW_VIEW_ON_SITE": True,
+    "SHOW_BACK_BUTTON": True,
+
+    # Custom CSS
+    "STYLES": [
+        lambda request: static("css/admin.css"),
+    ],
+
+    # Command palette
+    "COMMAND": {
+        "search_models": True,
+        "show_history": True,
+    },
+
+    # Sidebar
+    "SIDEBAR": {
+        "show_search": True,
+        "show_all_applications": True,
     },
 }
