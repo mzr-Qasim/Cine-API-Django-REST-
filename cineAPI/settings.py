@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "rest_framework",
     'watchlist_app',
 ]
 
@@ -139,8 +140,8 @@ MAILERS = {
 
 
 UNFOLD = {
-    "SITE_TITLE": "Cine API",
-    "SITE_HEADER": "Cine API",
+    "SITE_TITLE": "CineAPI Admin Panel",
+    "SITE_HEADER": "CineAPI",
     "SITE_SUBHEADER": "Admin Panel",
 
     # Theme
