@@ -56,7 +56,7 @@ class MovieDetailAV(APIView):
     
 
 
-class MovieAPIAV(APIView):
+class MovieAiAV(APIView):
     def post(self, request, pk):
         movie = Movie.objects.get(pk=pk)
 
