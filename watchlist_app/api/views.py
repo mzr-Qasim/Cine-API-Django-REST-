@@ -3,6 +3,7 @@ from rest_framework import status
 from rest_framework.response import Response
 from watchlist_app.api.serializers import MovieSerializer
 from watchlist_app.models import Movie
+from watchlist_app.services.gemini import generate_movie_review
 
 # Create your views here.
 
@@ -53,8 +54,22 @@ class MovieDetailAV(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
     
-        
-        
+
+
+class MovieAPIAV(APIView):
+    def post(self, request, pk):
+        movie = Movie.objects.get(pk=pk)
+
+
+        ai_review = generate_movie_review(
+            movie.name,
+            movie.description
+        )   
+
+        return Response({
+            "movie": movie.name,
+            "ai_review": ai_review
+        })     
         
         
         
