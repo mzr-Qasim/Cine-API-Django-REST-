@@ -1,3 +1,4 @@
+from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
 from rest_framework import status
 from rest_framework.response import Response
@@ -10,6 +11,11 @@ from watchlist_app.services.gemini import generate_movie_review
 class MovieListAV(APIView):
     def get(self, request):
         movies = Movie.objects.all()
+
+        search = request.query_params.get('search')
+        if search:
+            movies = movies.filter(name__icontains=search)
+
         serializer = MovieSerializer(movies, many=True)
         return Response(serializer.data)
     
@@ -58,7 +64,7 @@ class MovieDetailAV(APIView):
 
 class MovieAiAV(APIView):
     def post(self, request, pk):
-        movie = Movie.objects.get(pk=pk)
+        movie = get_object_or_404(Movie, pk=pk)
 
 
         ai_review = generate_movie_review(
@@ -74,8 +80,8 @@ class MovieAiAV(APIView):
         
         
         
-        
-        
+
+
         
 # @api_view(['GET', 'POST'])
 # def movieList(request):
